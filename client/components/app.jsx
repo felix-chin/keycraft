@@ -15,7 +15,9 @@ export default class App extends React.Component {
     return (
       <>
         <Header />
-        <ProductList />
+        <div className="py-4 bg-light">
+          <ProductList />
+        </div>
       </>
     );
   }
