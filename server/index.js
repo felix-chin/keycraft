@@ -29,7 +29,9 @@ app.get('/api/products', (req, res, next) => {
     from "products"
   `;
   db.query(sql)
-    .then(result => res.json(result.rows))
+    .then(result => {
+      res.json(result.rows);
+    })
     .catch(err => next(err));
 });
 
