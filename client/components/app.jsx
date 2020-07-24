@@ -5,11 +5,26 @@ import ProductDetails from './product-details';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      view: {
+        name: 'catalog',
+        params: {}
+      }
+    };
+    this.setView = this.setView.bind(this);
   }
 
   componentDidMount() {
 
+  }
+
+  setView(name, params) {
+    this.setState({
+      view: {
+        name: name,
+        params: params
+      }
+    });
   }
 
   render() {
@@ -17,7 +32,7 @@ export default class App extends React.Component {
       <>
         <Header />
         <div className="py-4 bg-light">
-          <ProductList />
+          <ProductList setView={this.setView} />
           <ProductDetails />
         </div>
       </>
