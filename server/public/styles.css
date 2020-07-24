@@ -2,3 +2,7 @@
   height: 18rem;
   object-fit: contain;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

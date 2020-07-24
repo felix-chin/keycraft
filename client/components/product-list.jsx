@@ -14,7 +14,7 @@ export default class ProductList extends React.Component {
   }
 
   getProducts() {
-    fetch('api/products')
+    fetch('/api/products')
       .then(res => res.json())
       .then(data => this.setState({
         products: data
@@ -23,10 +23,12 @@ export default class ProductList extends React.Component {
   }
 
   render() {
+    const setView = this.props.setView;
     const products = this.state.products;
     const productListItems = products.map(product =>
       <div key={product.productId} className="col-md-4 mb-4">
         <ProductListItem
+          setView={() => setView('details', { productId: product.productId })}
           image={product.image}
           name={product.name}
           price={'$' + (product.price / 100).toFixed(2)}
