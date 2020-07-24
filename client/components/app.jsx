@@ -28,12 +28,18 @@ export default class App extends React.Component {
   }
 
   render() {
+    const view = this.state.view.name;
+    let productRender;
+    if (view === 'catalog') {
+      productRender = <ProductList setView={this.setView} />;
+    } else if (view === 'details') {
+      productRender = <ProductDetails setView={this.setView} productId={this.state.view.params.productId} />;
+    }
     return (
       <>
         <Header />
         <div className="py-4 bg-light">
-          <ProductList setView={this.setView} />
-          <ProductDetails />
+          {productRender}
         </div>
       </>
     );

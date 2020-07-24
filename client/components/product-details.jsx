@@ -9,7 +9,8 @@ export default class ProductDetails extends React.Component {
   }
 
   componentDidMount() {
-    fetch('/api/products/1')
+    const productId = this.props.productId;
+    fetch(`/api/products/${productId}`)
       .then(res => res.json())
       .then(data => this.setState({
         product: data
@@ -19,11 +20,12 @@ export default class ProductDetails extends React.Component {
 
   render() {
     const product = this.state.product;
+    const setView = this.props.setView;
     return (
       <div className="container">
         <div className="container bg-white border rounded shadow-sm py-3">
           <div className="row mb-3">
-            <span className="col-md-auto text-muted ml-2">{'< Back to catalog'}</span>
+            <span onClick={() => setView('catalog', {})} className="col-md-auto text-muted ml-2 cursor-pointer">{'< Back to catalog'}</span>
           </div>
           <div className="row">
             <img src={product.image} className="col-md-5 img-fluid" />
