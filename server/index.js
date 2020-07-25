@@ -84,10 +84,15 @@ app.post('/api/cart', (req, res, next) => {
   const params = [productId];
   db.query(sql, params)
     .then(result => {
-      if (!result.rows) {
+      if (result.rows.length === 0) {
         throw new ClientError('no results found', 400);
       } else if (req.session.cartId) {
-        return req.session.cartId;
+        const price = result.rows[0];
+        const newObj = {
+          cartId: req.session.cartId,
+          ...price
+        };
+        return newObj;
       } else {
         const price = result.rows[0];
         const sql = `
@@ -100,8 +105,7 @@ app.post('/api/cart', (req, res, next) => {
             const cartId = result.rows[0];
             const newObj = { ...cartId, ...price };
             return newObj;
-          })
-          .catch(err => next(err));
+          });
       }
     })
     .then(result => {
@@ -113,8 +117,7 @@ app.post('/api/cart', (req, res, next) => {
       `;
       const params = [result.cartId, productId, result.price];
       return db.query(sql, params)
-        .then(result => result.rows[0])
-        .catch(err => next(err));
+        .then(result => result.rows[0]);
     })
     .then(result => {
       const sql = `
@@ -130,8 +133,7 @@ app.post('/api/cart', (req, res, next) => {
       `;
       const params = [result.cartItemId];
       return db.query(sql, params)
-        .then(result => res.status(201).json(result.rows[0]))
-        .catch(err => next(err));
+        .then(result => res.status(201).json(result.rows[0]));
     })
     .catch(err => next(err));
 });
