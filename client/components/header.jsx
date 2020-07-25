@@ -9,9 +9,9 @@ export default function Header(props) {
             <i className="fas fa-hand-holding-usd mr-2"></i>
             <strong>Wicked Sales</strong>
           </div>
-          <div className="d-flex align-items-center text-white">
+          <div className="d-flex align-items-center text-white cursor-pointer">
             <span className="mr-2">{props.cartItemCount} Items</span>
-            <i className="fas fa-shopping-cart cart-icon cursor-pointer"></i>
+            <i className="fas fa-shopping-cart cart-icon"></i>
           </div>
         </div>
       </div>
