@@ -9,13 +9,14 @@ export default class App extends React.Component {
       view: {
         name: 'catalog',
         params: {}
-      }
+      },
+      cart: []
     };
     this.setView = this.setView.bind(this);
   }
 
   componentDidMount() {
-
+    this.getCartItems();
   }
 
   setView(name, params) {
@@ -25,6 +26,15 @@ export default class App extends React.Component {
         params: params
       }
     });
+  }
+
+  getCartItems() {
+    fetch('/api/cart')
+      .then(res => res.json())
+      .then(data => this.setState({
+        cart: data
+      }))
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -37,7 +47,7 @@ export default class App extends React.Component {
     }
     return (
       <>
-        <Header />
+        <Header cartItemCount={this.state.cart.length} />
         <div className="py-4 bg-light">
           {productRender}
         </div>
