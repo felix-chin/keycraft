@@ -29,7 +29,11 @@ export default class ProductDetails extends React.Component {
         <div className="container">
           <div className="container bg-white border rounded shadow-sm py-3">
             <div className="row mb-3">
-              <span onClick={() => setView('catalog', {})} className="col-md-auto text-muted ml-2 cursor-pointer">{'< Back to catalog'}</span>
+              <span
+                onClick={() => setView('catalog', {})}
+                className="col-md-auto text-muted ml-2 cursor-pointer">
+                {'< Back to catalog'}
+              </span>
             </div>
             <div className="row">
               <img src={product.image} className="col-md-5 img-fluid" />
@@ -37,7 +41,12 @@ export default class ProductDetails extends React.Component {
                 <h3>{product.name}</h3>
                 <h5 className="text-muted">{'$' + (product.price / 100).toFixed(2)}</h5>
                 <p>{product.shortDescription}</p>
-                <button type="button" onClick={() => addToCart(product)} className="btn btn-primary">Add to Cart</button>
+                <button
+                  type="button"
+                  onClick={() => addToCart(product)}
+                  className="btn btn-primary">
+                    Add to Cart
+                </button>
               </div>
             </div>
             <div className="row mt-3">

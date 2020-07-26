@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './header';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
+import CartSummary from './cart-summary';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -58,17 +59,19 @@ export default class App extends React.Component {
 
   render() {
     const view = this.state.view.name;
-    let productRender;
+    let renderPage;
     if (view === 'catalog') {
-      productRender = <ProductList setView={this.setView} />;
+      renderPage = <ProductList setView={this.setView} />;
     } else if (view === 'details') {
-      productRender = <ProductDetails setView={this.setView} productId={this.state.view.params.productId} addToCart={this.addToCart} />;
+      renderPage = <ProductDetails setView={this.setView} productId={this.state.view.params.productId} addToCart={this.addToCart} />;
+    } else if (view === 'cart') {
+      renderPage = <CartSummary setView={this.setView} cart={this.state.cart} />;
     }
     return (
       <>
-        <Header cartItemCount={this.state.cart.length} />
+        <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         <div className="py-4 bg-light">
-          {productRender}
+          {renderPage}
         </div>
       </>
     );
