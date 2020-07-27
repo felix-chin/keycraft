@@ -24,7 +24,19 @@ export default function CartSummary(props) {
       {cart.length === 0 &&
         <h5>Cart is empty</h5>
       }
-      <h4 className="mt-3">Item Total {'$' + (totalPrice / 100).toFixed(2)}</h4>
+      <div className="d-flex justify-content-between align-items-center mt-3">
+        <h4>Item Total {'$' + (totalPrice / 100).toFixed(2)}</h4>
+        <button
+          type="button"
+          onClick={() => {
+            if (cart.length > 0) {
+              setView('checkout', {});
+            }
+          }}
+          className="btn btn-primary">
+            Checkout
+        </button>
+      </div>
     </div>
   );
 }
