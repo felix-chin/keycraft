@@ -63,7 +63,10 @@ export default class App extends React.Component {
     if (view === 'catalog') {
       renderPage = <ProductList setView={this.setView} />;
     } else if (view === 'details') {
-      renderPage = <ProductDetails setView={this.setView} productId={this.state.view.params.productId} addToCart={this.addToCart} />;
+      renderPage = <ProductDetails
+        setView={this.setView}
+        productId={this.state.view.params.productId}
+        addToCart={this.addToCart} />;
     } else if (view === 'cart') {
       renderPage = <CartSummary setView={this.setView} cart={this.state.cart} />;
     }

@@ -96,7 +96,7 @@ app.post('/api/cart', (req, res, next) => {
       } else {
         const price = result.rows[0];
         const sql = `
-          insert into "carts"("cartId", "createdAt")
+          insert into "carts" ("cartId", "createdAt")
                values (default, default)
             returning "cartId"
         `;
@@ -134,6 +134,28 @@ app.post('/api/cart', (req, res, next) => {
       const params = [result.cartItemId];
       return db.query(sql, params)
         .then(result => res.status(201).json(result.rows[0]));
+    })
+    .catch(err => next(err));
+});
+
+app.post('/api/orders', (req, res, next) => {
+  const order = req.body;
+  if (!req.session.cartId) {
+    return next(new ClientError('no cartId found in session', 400));
+  }
+  if (!order.name || !order.creditCard || !order.shippingAddress) {
+    return next(new ClientError('invalid order', 404));
+  }
+  const sql = `
+    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
+         values ($1, $2, $3, $4)
+      returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
+  `;
+  const params = [req.session.cartId, order.name, order.creditCard, order.shippingAddress];
+  return db.query(sql, params)
+    .then(result => {
+      delete req.session.cartId;
+      res.status(201).json(result.rows[0]);
     })
     .catch(err => next(err));
 });
