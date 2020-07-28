@@ -24,6 +24,7 @@ export default class CheckoutForm extends React.Component {
   }
 
   render() {
+    const setView = this.props.setView;
     const cart = this.props.cart;
     const totalPrice = cart.reduce((sum, item) => {
       return sum + item.price;
@@ -61,7 +62,7 @@ export default class CheckoutForm extends React.Component {
               className="form-control" />
           </div>
           <div className="d-flex justify-content-between">
-            <span className="text-muted cursor-pointer">{'< Continue Shopping'}</span>
+            <span onClick={() => setView('catalog', {})} className="text-muted cursor-pointer">{'< Continue Shopping'}</span>
             <button type="submit" className="btn btn-primary">Place Order</button>
           </div>
         </form>
