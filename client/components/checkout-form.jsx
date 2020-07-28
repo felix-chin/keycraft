@@ -21,9 +21,6 @@ export default class CheckoutForm extends React.Component {
   handleSubmit() {
     const placeOrder = this.props.placeOrder;
     placeOrder(this.state);
-    this.setState({
-      cart: []
-    });
   }
 
   render() {
