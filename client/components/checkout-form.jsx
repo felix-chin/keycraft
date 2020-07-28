@@ -21,14 +21,21 @@ export default class CheckoutForm extends React.Component {
   handleSubmit() {
     const placeOrder = this.props.placeOrder;
     placeOrder(this.state);
+    this.setState({
+      cart: []
+    });
   }
 
   render() {
+    const cart = this.props.cart;
+    const totalPrice = cart.reduce((sum, item) => {
+      return sum + item.price;
+    }, 0);
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit}>
           <h3 className="mt-2">Checkout</h3>
-          <h5 className="text-muted my-4">Order Total: </h5>
+          <h5 className="text-muted my-4">Order Total: ${(totalPrice / 100).toFixed(2)}</h5>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -41,7 +48,7 @@ export default class CheckoutForm extends React.Component {
           <div className="form-group">
             <label htmlFor="credit-card">Credit Card</label>
             <input
-              name="credit-card"
+              name="creditCard"
               type="text"
               value={this.state.creditCard}
               onChange={this.handleChange}
@@ -50,7 +57,7 @@ export default class CheckoutForm extends React.Component {
           <div className="form-group">
             <label htmlFor="shipping-address">Shipping Address</label>
             <textarea
-              name="shipping-address"
+              name="shippingAddress"
               value={this.state.shippingAddress}
               rows="4"
               onChange={this.handleChange}
