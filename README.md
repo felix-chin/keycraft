@@ -5,7 +5,7 @@ A full stack Node.js and React.js shopping cart application.
 
 Link to a live demo of the application: 
 
-https://crime-watch.felixchin.com
+https://felix-chin.github.io/wicked-sales-js/
 
 ## Technologies Used
 
@@ -31,7 +31,7 @@ https://crime-watch.felixchin.com
 
 ## Preview
 
-![alt text](./demo.gif "Demo")
+![wicked-sales](./wicked-sales.jpg)
 
 ## Development
 
