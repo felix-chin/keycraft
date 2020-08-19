@@ -1,4 +1,4 @@
-# wicked-sales-js
+# keycraft
 A full stack Node.js and React.js shopping cart application.
 
 ## Live Demo
