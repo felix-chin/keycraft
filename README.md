@@ -5,7 +5,7 @@ A full stack Node.js and React.js shopping cart application.
 
 Link to a live demo of the application: 
 
-https://felix-chin.github.io/wicked-sales-js/
+https://keycraft.felixchin.com/
 
 ## Technologies Used
 
