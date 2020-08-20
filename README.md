@@ -45,8 +45,8 @@ https://keycraft.felixchin.com/
 
 1. Clone the repository:
     ```shell
-    git clone https://github.com/felix-chin/wicked-sales-js
-    cd wicked-sales-js
+    git clone https://github.com/felix-chin/keycraft
+    cd keycraft
     ```
 2. Install npm dependencies:
     ```shell
