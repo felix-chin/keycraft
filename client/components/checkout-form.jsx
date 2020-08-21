@@ -41,6 +41,7 @@ export default class CheckoutForm extends React.Component {
               type="text"
               value={this.state.name}
               onChange={this.handleChange}
+              required
               className="form-control" />
           </div>
           <div className="form-group">
@@ -50,6 +51,7 @@ export default class CheckoutForm extends React.Component {
               type="text"
               value={this.state.creditCard}
               onChange={this.handleChange}
+              required
               className="form-control" />
           </div>
           <div className="form-group">
@@ -59,6 +61,7 @@ export default class CheckoutForm extends React.Component {
               value={this.state.shippingAddress}
               rows="4"
               onChange={this.handleChange}
+              required
               className="form-control" />
           </div>
           <div className="d-flex justify-content-between">
