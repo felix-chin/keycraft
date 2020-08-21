@@ -20,11 +20,8 @@ export default class CheckoutForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const setView = this.props.setView;
     const placeOrder = this.props.placeOrder;
-    setView('catalog', {});
     placeOrder(this.state);
-
   }
 
   render() {
