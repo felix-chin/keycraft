@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ProductListItem(props) {
   return (
-    <div onClick={props.setView} className="card shadow-sm h-100 cursor-pointer">
+    <div onClick={props.setView} className="card h-100 cursor-pointer">
       <img src={props.image} alt={props.name} className="card-img-top object-fit" />
       <div className="card-body">
         <h5 className="card-title">{props.name}</h5>

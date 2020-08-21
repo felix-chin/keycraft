@@ -10,3 +10,8 @@
 .cart-icon {
   font-size: 24px;
 }
+
+.card:hover {
+  box-shadow: 0px 0px 5px rgba(40, 40, 40, 0.7);
+  transform: scale(1.05);
+}
