@@ -19,8 +19,11 @@ export default class CheckoutForm extends React.Component {
   }
 
   handleSubmit() {
+    const setView = this.props.setView;
     const placeOrder = this.props.placeOrder;
+    setView('catalog', {});
     placeOrder(this.state);
+
   }
 
   render() {
@@ -52,6 +55,7 @@ export default class CheckoutForm extends React.Component {
               value={this.state.creditCard}
               onChange={this.handleChange}
               required
+              autoComplete="off"
               className="form-control" />
           </div>
           <div className="form-group">
