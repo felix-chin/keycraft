@@ -229,18 +229,6 @@ ALTER TABLE ONLY public.products ALTER COLUMN "productId" SET DEFAULT nextval('p
 --
 
 COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
-25	35	1	2999
-26	35	2	2595
-27	35	2	2595
-28	35	6	830
-29	35	5	9900
-30	36	3	2900
-31	36	3	2900
-32	36	3	2900
-33	36	3	2900
-34	37	1	2999
-35	37	2	2595
-36	37	3	2900
 \.
 
 
@@ -249,9 +237,6 @@ COPY public."cartItems" ("cartItemId", "cartId", "productId", price) FROM stdin;
 --
 
 COPY public.carts ("cartId", "createdAt") FROM stdin;
-35	2020-07-24 22:50:04.621931-07
-36	2020-07-25 10:40:11.691078-07
-37	2020-07-25 23:53:50.858803-07
 \.
 
 
@@ -347,4 +332,3 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 --
 -- PostgreSQL database dump complete
 --
-
