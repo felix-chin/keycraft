@@ -1,3 +1,35 @@
+.navbar-bg {
+  background-image: linear-gradient(
+    135deg,
+    #FC7400 70%,
+    #FEC414 100%
+  );
+}
+
+.cart-icon {
+  font-size: 24px;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(30, 30, 30, 0.4), rgba(10, 10, 10, 0.8)), url("./images/hero.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 96vh;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-style: italic;
+}
+
+.hero-text p {
+  font-size: 36px;
+  font-weight: 500;
+}
+
 .object-fit {
   height: 18rem;
   object-fit: contain;
@@ -7,31 +39,13 @@
   cursor: pointer;
 }
 
-.cart-icon {
-  font-size: 24px;
+hr {
+  height: 1px;
+  width: 70%;
+  background-color: white;
 }
 
 .card:hover {
   box-shadow: 0px 0px 5px rgba(40, 40, 40, 0.7);
   transform: scale(1.05);
-}
-
-.hero {
-  background-image: url("./images/hero.jpg");
-  background-position: center;
-  background-size: cover;
-  min-height: 96vh;
-  z-index: -1;
-}
-
-.hero-text {
-  text-align: center;
-}
-
-.navbar-bg {
-  background-image: linear-gradient(
-    135deg,
-    #FC7400 0%,
-    #FEC414 100%
-  );
 }
