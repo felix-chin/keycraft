@@ -36,13 +36,20 @@ export default class ProductList extends React.Component {
       </div>
     );
     return (
-      <div className="container">
-        <div className="row">
-          <div className='card-group'>
-            {productListItems}
+      <>
+        <div className="jumbotron jumbotron-fluid hero d-flex align-items-center">
+          <div className="container hero-text">
+            <h1 className="display-3 text-white font-weight-bold">Welcome to Keycraft</h1>
           </div>
         </div>
-      </div>
+        <div className="container">
+          <div className="row">
+            <div className='card-group'>
+              {productListItems}
+            </div>
+          </div>
+        </div>
+      </>
     );
   }
 }

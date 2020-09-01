@@ -98,7 +98,7 @@ export default class App extends React.Component {
     return (
       <>
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
-        <div className="py-4 bg-light">
+        <div className="bg-light">
           {renderPage}
         </div>
       </>
