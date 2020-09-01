@@ -1,4 +1,5 @@
 import React from 'react';
+import Hero from './hero';
 import ProductListItem from './product-list-item';
 
 export default class ProductList extends React.Component {
@@ -37,11 +38,7 @@ export default class ProductList extends React.Component {
     );
     return (
       <>
-        <div className="jumbotron jumbotron-fluid hero d-flex align-items-center">
-          <div className="container hero-text">
-            <h1 className="display-3 text-white font-weight-bold">Welcome to Keycraft</h1>
-          </div>
-        </div>
+        <Hero />
         <div className="container">
           <div className="row">
             <div className='card-group'>
