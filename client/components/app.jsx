@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './header';
+import Disclaimer from './disclaimer';
 import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
@@ -12,11 +13,13 @@ export default class App extends React.Component {
         name: 'catalog',
         params: {}
       },
-      cart: []
+      cart: [],
+      disclaimer: true
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    this.closeDisclaimer = this.closeDisclaimer.bind(this);
   }
 
   componentDidMount() {
@@ -80,6 +83,10 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  closeDisclaimer() {
+    this.setState({ disclaimer: false });
+  }
+
   render() {
     const view = this.state.view.name;
     let renderPage;
@@ -97,6 +104,9 @@ export default class App extends React.Component {
     }
     return (
       <>
+        { this.state.disclaimer &&
+          <Disclaimer closeDisclaimer={this.closeDisclaimer} />
+        }
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         <div className="bg-light">
           {renderPage}
