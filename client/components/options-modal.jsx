@@ -54,7 +54,7 @@ export default function OptionsModal(props) {
             <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
             <button type="submit" className="btn btn-color mt-2">
               Add to Cart
-          </button>
+            </button>
           </div>
         </form>
       </div>
