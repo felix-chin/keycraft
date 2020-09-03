@@ -5,7 +5,6 @@ export default class ProductDetails extends React.Component {
     super(props);
     this.state = {
       product: null,
-      switch: '',
       quantity: 1
     };
     this.handleChange = this.handleChange.bind(this);
@@ -86,7 +85,7 @@ export default class ProductDetails extends React.Component {
                 <button
                   type="button"
                   onClick={() => addToCart(product)}
-                  className="btn btn-primary">
+                  className="btn btn-color">
                     Add to Cart
                 </button>
               </div>

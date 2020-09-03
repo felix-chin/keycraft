@@ -25,7 +25,8 @@ app.get('/api/products', (req, res, next) => {
            "name",
            "price",
            "image",
-           "shortDescription"
+           "shortDescription",
+           "switchOptions"
       from "products"
   `;
   db.query(sql)
@@ -56,6 +57,7 @@ app.get('/api/cart', (req, res, next) => {
     const sql = `
     select "c"."cartItemId",
            "c"."price",
+           "c"."selectedSwitch",
            "p"."productId",
            "p"."image",
            "p"."name",

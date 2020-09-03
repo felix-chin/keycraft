@@ -1,7 +1,7 @@
-productId,name,price,image,shortDescription,longDescription
-1,Ducky Mecha Mini v2,12900,/images/ducky-mecha.jpg,"RGB backlit cast aluminum framed keyboard equipped with laser engraved PBT double shot keycaps.",""
-2,Topre Realforce,22000,/images/topre.jpg,"Features Actuation Point Changer (APC) technology which allows you to customize key activation points for a full customized experience.",""
-3,Leopold FC660M,12500,/images/leopold.jpg,"High quality plate mounted 65% keyboard with PBT double shot keycaps and pre-lubed stabilizers.",""
-4,Varmilo VA68M,19000,/images/varmilo.png,"White LED backlit 65% keyboard with dye subliminated PBT keycaps.",""
-5,Ducky One 2 Mini v2,9900,/images/ducky.png,"Thin bezel design provides sleek aesthetics to this lightwight and portable 60% RGB keyboard.",""
-6,Vortex Race 3,15900,/images/vortex.jpg,"A tenkeyless in a 75% layout provides compactness makes for a minimists dream.",""
+productId,name,price,image,shortDescription,switchOptions
+1,Ducky Mecha Mini v2,12900,/images/ducky-mecha.jpg,"RGB backlit cast aluminum framed keyboard equipped with laser engraved PBT double shot keycaps.",basic
+2,Topre Realforce,22000,/images/topre.jpg,"Features Actuation Point Changer (APC) technology which allows you to customize key activation points for a full customized experience.",topre
+3,Leopold FC660M,12500,/images/leopold.jpg,"High quality plate mounted 65% keyboard with PBT double shot keycaps and pre-lubed stabilizers.",premium
+4,Varmilo VA68M,19000,/images/varmilo.png,"White LED backlit 65% keyboard with high quality dye subliminated PBT keycaps.",basic
+5,Ducky One 2 Mini v2,9900,/images/ducky.png,"Thin bezel design provides sleek aesthetics to this lightwight and portable 60% RGB keyboard.",basic
+6,Vortex Race 3,15900,/images/vortex.jpg,"A tenkeyless in a 75% layout provides compactness; ideal for minimists.",premium

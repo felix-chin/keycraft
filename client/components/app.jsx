@@ -44,7 +44,8 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  addToCart(product) {
+  addToCart(product, e) {
+    e.stopPropagation();
     fetch('/api/cart', {
       method: 'POST',
       headers: {
@@ -91,7 +92,7 @@ export default class App extends React.Component {
     const view = this.state.view.name;
     let renderPage;
     if (view === 'catalog') {
-      renderPage = <ProductList setView={this.setView} />;
+      renderPage = <ProductList setView={this.setView} addToCart={this.addToCart} />;
     } else if (view === 'details') {
       renderPage = <ProductDetails
         setView={this.setView}
@@ -104,9 +105,9 @@ export default class App extends React.Component {
     }
     return (
       <>
-        { this.state.disclaimer &&
+        {/* { this.state.disclaimer &&
           <Disclaimer closeDisclaimer={this.closeDisclaimer} />
-        }
+        } */}
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         <div className="bg-light">
           {renderPage}

@@ -33,7 +33,7 @@ export default function CartSummary(props) {
               setView('checkout', {});
             }
           }}
-          className="btn btn-primary">
+          className="btn">
             Checkout
         </button>
       </div>
