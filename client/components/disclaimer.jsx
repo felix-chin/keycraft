@@ -1,5 +1,5 @@
 import React from 'react';
-import useLockBodyScroll from './lock-body-scroll'
+import useLockBodyScroll from './lock-body-scroll';
 
 export default function Disclaimer(props) {
   useLockBodyScroll();

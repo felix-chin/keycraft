@@ -7,9 +7,10 @@ export default class ProductList extends React.Component {
     super(props);
     this.state = {
       products: [],
-      openModal: false,
+      optionsModal: false,
       product: null
     };
+    this.closeOptions = this.closeOptions.bind(this);
   }
 
   componentDidMount() {
@@ -25,18 +26,21 @@ export default class ProductList extends React.Component {
       .catch(err => console.error(err));
   }
 
-  handleOptions(product, e) {
+  openOptions(product, e) {
     e.stopPropagation();
     this.setState({
-      openModal: true,
+      optionsModal: true,
       product: product
-    })
+    });
+  }
+
+  closeOptions() {
+    this.setState({ optionsModal: false })
   }
 
   render() {
     const setView = this.props.setView;
     const products = this.state.products;
-    const addToCart= this.props.addToCart;
     const productListItems = products.map(product =>
       <div key={product.productId} className="col-md-4 mb-4">
         <ProductListItem
@@ -45,13 +49,13 @@ export default class ProductList extends React.Component {
           name={product.name}
           price={'$' + (product.price / 100).toFixed(2)}
           desc={product.shortDescription}
-          handleOptions={(e) => this.handleOptions(product, e)} />
+          openOptions={e => this.openOptions(product, e)} />
       </div>
     );
     return (
       <>
-        { this.state.openModal &&
-          <OptionsModal product={this.state.product} addToCart={() => addToCart(this.state.product)} />
+        {this.state.optionsModal &&
+          <OptionsModal closeOptions={this.closeOptions} product={this.state.product} addToCart={this.props.addToCart} />
         }
         <Hero />
         <div className="container">

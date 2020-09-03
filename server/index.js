@@ -74,7 +74,7 @@ app.get('/api/cart', (req, res, next) => {
 });
 
 app.post('/api/cart', (req, res, next) => {
-  const productId = parseInt(req.body.productId, 10);
+  const productId = parseInt(req.body.product.productId, 10);
   if (!Number.isInteger(productId) || productId <= 0) {
     return next(new ClientError('invalid productId', 404));
   }
@@ -113,11 +113,11 @@ app.post('/api/cart', (req, res, next) => {
     .then(result => {
       req.session.cartId = result.cartId;
       const sql = `
-        insert into "cartItems" ("cartId", "productId", "price")
-             values ($1, $2, $3)
+        insert into "cartItems" ("cartId", "productId", "price", "selectedSwitch")
+             values ($1, $2, $3, $4)
           returning "cartItemId"
       `;
-      const params = [result.cartId, productId, result.price];
+      const params = [result.cartId, productId, result.price, req.body.option];
       return db.query(sql, params)
         .then(result => result.rows[0]);
     })
@@ -125,6 +125,7 @@ app.post('/api/cart', (req, res, next) => {
       const sql = `
         select "c"."cartItemId",
                "c"."price",
+               "c"."selectedSwitch",
                "p"."productId",
                "p"."image",
                "p"."name",

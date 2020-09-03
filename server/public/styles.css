@@ -101,3 +101,7 @@ hr {
 .price {
   font-size: 24px;
 }
+
+.fa-times:hover {
+  transform: scale(1.05);
+}
