@@ -33,10 +33,10 @@ export default function OptionsModal(props) {
     <section className="modal-overlay d-flex">
       <div className="options-content p-3">
         <div className="d-flex justify-content-between">
-          <h4>{product.name}</h4>
-          <h4>
+          <h5>{product.name}</h5>
+          <h5>
             <i onClick={closeOptions} className="fas fa-times cursor-pointer"></i>
-          </h4>
+          </h5>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
         <form onSubmit={handleSubmit}>
