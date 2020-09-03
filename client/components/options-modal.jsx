@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
-import useLockBodyScroll from './lock-body-scroll'
+import React, { useState } from 'react';
+import useLockBodyScroll from './lock-body-scroll';
 
 export default function OptionsModal(props) {
   useLockBodyScroll();
 
   const product = props.product;
-  const setOption = props.setOption;
   const addToCart = props.addToCart;
   const closeOptions = props.closeOptions;
   let switches = [];
@@ -14,14 +13,13 @@ export default function OptionsModal(props) {
 
   const handleChange = e => setSwitch({
     [e.target.name]: e.target.value
-  })
+  });
 
   const handleSubmit = e => {
     e.preventDefault();
-    addToCart(product, selectedSwitch['switch']);
+    addToCart(product, selectedSwitch.switch);
     closeOptions();
-  }
-
+  };
 
   if (product.switchOptions === 'basic') {
     switches = ['Cherry MX Red', 'Cherry MX Brown', 'Cherry MX Blue', 'Gateron Black', 'Gateron Brown', 'Gateron Green'];
@@ -33,7 +31,7 @@ export default function OptionsModal(props) {
 
   return (
     <section className="modal-overlay d-flex">
-      <form onSubmit={handleSubmit} className="options-content p-3">
+      <div className="options-content p-3">
         <div className="d-flex justify-content-between">
           <h4>{product.name}</h4>
           <h4>
@@ -41,21 +39,25 @@ export default function OptionsModal(props) {
           </h4>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
-        <h5 className="text-muted">{'$' + (product.price / 100).toFixed(2)}</h5>
-        <h5>Select a switch option:</h5>
-        {switches.map((item, i) =>
-          <div key={i} className="form-check">
-            <input type="radio" name="switch" value={item} onChange={handleChange} className="form-check-input" />
-            <label htmlFor={item} className="form-check-label">
-              {item}
-            </label>
-          </div>
+        <form onSubmit={handleSubmit}>
+          <h5>Select a switch:</h5>
+          {switches.map((item, i) =>
+            <div key={i} className="form-check">
+              <input type="radio" name="switch" value={item} onChange={handleChange} className="form-check-input" />
+              <label htmlFor={item} className="form-check-label">
+                {item}
+              </label>
+            </div>
           )
-        }
-        <button type="submit" className="btn btn-color mt-2">
-          Add to Cart
-        </button>
-      </form>
+          }
+          <div className="d-flex justify-content-between align-items-center">
+            <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
+            <button type="submit" className="btn btn-color mt-2">
+              Add to Cart
+          </button>
+          </div>
+        </form>
+      </div>
     </section>
   );
 }

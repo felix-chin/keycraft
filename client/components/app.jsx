@@ -50,7 +50,7 @@ export default class App extends React.Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({product: product, option: option})
+      body: JSON.stringify({ product: product, option: option })
     })
       .then(res => res.json())
       .then(data => {

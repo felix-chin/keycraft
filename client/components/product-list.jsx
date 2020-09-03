@@ -35,7 +35,7 @@ export default class ProductList extends React.Component {
   }
 
   closeOptions() {
-    this.setState({ optionsModal: false })
+    this.setState({ optionsModal: false });
   }
 
   render() {
