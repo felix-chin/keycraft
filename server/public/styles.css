@@ -112,9 +112,25 @@ hr {
 }
 
 .price {
-  font-size: 24px;
+  color: #FC7400;
+  line-height: 1.6;
 }
 
 .fa-times:hover {
   transform: scale(1.05);
+}
+
+.qty-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.qty-btn {
+  color: #FC7400;
+  font-size: 28px;
+  line-height: 1.8;
+}
+
+.back:hover {
+  transform: scale(1.2);
 }

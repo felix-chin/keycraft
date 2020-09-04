@@ -74,43 +74,57 @@ export default class ProductDetails extends React.Component {
       return (
         <section>
           <div className="container">
-            <div className="row mb-3">
+            <div className="my-3">
               <span
                 onClick={() => setView('catalog', {})}
-                className="col-md-auto text-muted ml-2 cursor-pointer">
+                className="col-md-auto text-muted cursor-pointer back h5 m-0">
                 <i className="fas fa-arrow-circle-left"></i>
                 {' Back to catalog'}
               </span>
             </div>
             <div className="row bg-white border rounded shadow-sm py-3">
-              <img src={product.image} className="col-md-7 img-fluid" />
+              <img src={product.image} className="col-md-7 object-fit" />
               <form onSubmit={this.handleSubmit} className="col-md-5">
                 <h3>{product.name}</h3>
-                <h5 className="text-muted">{'$' + (product.price / 100).toFixed(2)}</h5>
-                <p>{product.shortDescription}</p>
-                <div>
-                  <select name="switch" value={this.state.value} defaultValue="" onChange={this.handleChange} required>
+                <h3 className="price">{'$' + (product.price / 100).toFixed(2)}</h3>
+                <p className="lead">{product.shortDescription}</p>
+                <div className="form-group">
+                  <select
+                    name="switch"
+                    value={this.state.value}
+                    defaultValue=""
+                    onChange={this.handleChange}
+                    required
+                    className="form-control form-control-lg">
                     <option value="" disabled>Select a switch</option>
                     { this.state.switches.map((item, i) =>
-                      <option key={i} value={item}>{item}</option>
-                    )
+                        <option key={i} value={item}>{item}</option>
+                      )
                     }
                   </select>
                 </div>
-                <div>
-                  <span>
-                    <i onClick={this.decreaseQty} className="fas fa-minus-circle"></i>
-                  </span>
-                  <input type="text" value={this.state.quantity} size="1" onChange={this.handleChange} readOnly/>
-                  <span>
-                    <i onClick={this.increaseQty} className="fas fa-plus-circle"></i>
-                  </span>
+                <div className="form-row d-flex justify-content-between">
+                  <div className="form-group d-flex flex-row align-items-center mx-1">
+                    <label htmlFor="quantity" className="qty-text mr-2">Qty:</label>
+                    <i onClick={this.decreaseQty} className="fas fa-minus-circle qty-btn"></i>
+                    <input
+                      type="text"
+                      name="quantity"
+                      value={this.state.quantity}
+                      size="1"
+                      onChange={this.handleChange}
+                      readOnly
+                      className="form-control form-control-lg text-center mx-1" />
+                    <i onClick={this.increaseQty} className="fas fa-plus-circle qty-btn"></i>
+                  </div>
+                  <div className="text-right">
+                    <button
+                      type="submit"
+                      className="btn btn-lg btn-color">
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-color">
-                    Add to Cart
-                </button>
               </form>
             </div>
           </div>

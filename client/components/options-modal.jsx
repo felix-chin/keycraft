@@ -51,7 +51,7 @@ export default function OptionsModal(props) {
         }
         <div className="d-flex justify-content-between align-items-center">
           <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
-          <button type="submit" className="btn btn-color mt-2">
+          <button type="submit" className="btn btn-lg btn-color mt-2">
             Add to Cart
           </button>
         </div>
