@@ -17,7 +17,7 @@ export default function OptionsModal(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addToCart(product, selectedSwitch.switch);
+    addToCart(product, selectedSwitch.switch, 1);
     closeOptions();
   };
 
@@ -50,7 +50,7 @@ export default function OptionsModal(props) {
         )
         }
         <div className="d-flex justify-content-between align-items-center">
-          <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
+          <h3 className="price m-0">{'$' + (product.price / 100).toFixed(2)}</h3>
           <button type="submit" className="btn btn-lg btn-color mt-2">
             Add to Cart
           </button>

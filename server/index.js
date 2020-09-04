@@ -58,6 +58,7 @@ app.get('/api/cart', (req, res, next) => {
     select "c"."cartItemId",
            "c"."price",
            "c"."selectedSwitch",
+           "c"."quantity",
            "p"."productId",
            "p"."image",
            "p"."name",
@@ -113,11 +114,11 @@ app.post('/api/cart', (req, res, next) => {
     .then(result => {
       req.session.cartId = result.cartId;
       const sql = `
-        insert into "cartItems" ("cartId", "productId", "price", "selectedSwitch")
-             values ($1, $2, $3, $4)
+        insert into "cartItems" ("cartId", "productId", "price", "selectedSwitch", "quantity")
+             values ($1, $2, $3, $4, $5)
           returning "cartItemId"
       `;
-      const params = [result.cartId, productId, result.price, req.body.option];
+      const params = [result.cartId, productId, result.price, req.body.selectedSwitch, req.body.quantity];
       return db.query(sql, params)
         .then(result => result.rows[0]);
     })
@@ -126,6 +127,7 @@ app.post('/api/cart', (req, res, next) => {
         select "c"."cartItemId",
                "c"."price",
                "c"."selectedSwitch",
+               "c"."quantity",
                "p"."productId",
                "p"."image",
                "p"."name",

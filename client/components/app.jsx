@@ -44,13 +44,17 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  addToCart(product, option) {
+  addToCart(product, selectedSwitch, quantity) {
     fetch('/api/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ product: product, option: option })
+      body: JSON.stringify({
+        product: product,
+        selectedSwitch: selectedSwitch,
+        quantity: quantity
+       })
     })
       .then(res => res.json())
       .then(data => {
