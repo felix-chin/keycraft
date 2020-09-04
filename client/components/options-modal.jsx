@@ -31,7 +31,7 @@ export default function OptionsModal(props) {
 
   return (
     <section className="modal-overlay d-flex">
-      <div className="options-content p-3">
+      <form onSubmit={handleSubmit} className="options-content p-3">
         <div className="d-flex justify-content-between">
           <h5>{product.name}</h5>
           <h5>
@@ -39,25 +39,23 @@ export default function OptionsModal(props) {
           </h5>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
-        <form onSubmit={handleSubmit}>
-          <h5>Select a switch:</h5>
-          {switches.map((item, i) =>
-            <div key={i} className="form-check">
-              <input type="radio" name="switch" value={item} onChange={handleChange} className="form-check-input" />
-              <label htmlFor={item} className="form-check-label">
-                {item}
-              </label>
-            </div>
-          )
-          }
-          <div className="d-flex justify-content-between align-items-center">
-            <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
-            <button type="submit" className="btn btn-color mt-2">
-              Add to Cart
-            </button>
+        <h5>Select a switch:</h5>
+        {switches.map((item, i) =>
+          <div key={i} className="form-check">
+            <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input" />
+            <label htmlFor={item} className="form-check-label">
+              {item}
+            </label>
           </div>
-        </form>
-      </div>
+        )
+        }
+        <div className="d-flex justify-content-between align-items-center">
+          <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
+          <button type="submit" className="btn btn-lg btn-color mt-2">
+            Add to Cart
+          </button>
+        </div>
+      </form>
     </section>
   );
 }
