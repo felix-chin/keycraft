@@ -77,7 +77,7 @@ export default class ProductDetails extends React.Component {
             <div className="my-3">
               <span
                 onClick={() => setView('catalog', {})}
-                className="col-md-auto text-muted cursor-pointer back h5 m-0">
+                className="col-md-auto text-muted cursor-pointer h5 m-0">
                 <i className="fas fa-arrow-circle-left"></i>
                 {' Back to catalog'}
               </span>
@@ -98,8 +98,8 @@ export default class ProductDetails extends React.Component {
                     className="form-control form-control-lg">
                     <option value="" disabled>Select a switch</option>
                     { this.state.switches.map((item, i) =>
-                        <option key={i} value={item}>{item}</option>
-                      )
+                      <option key={i} value={item}>{item}</option>
+                    )
                     }
                   </select>
                 </div>
