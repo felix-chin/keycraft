@@ -4,11 +4,12 @@ import CartSummaryItem from './cart-summary-item';
 export default function CartSummary(props) {
   const setView = props.setView;
   const cart = props.cart;
+  const removeFromCart = props.removeFromCart;
   const totalPrice = cart.reduce((sum, item) => {
     return sum + item.price;
   }, 0);
   const cartItems = cart.map(item =>
-    <CartSummaryItem key={item.cartItemId} item={item} />
+    <CartSummaryItem key={item.cartItemId} item={item} removeFromCart={() => removeFromCart(item.cartItemId)}/>
   );
   return (
     <div className="container py-3">

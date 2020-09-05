@@ -143,16 +143,16 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.delete('/api/cart', (req, res, next) => {
-  const cartItemId = parseInt(req.body.cartItemId, 10);
+app.delete('/api/cart/:cartItemId', (req, res, next) => {
+  const cartItemId = parseInt(req.params.cartItemId, 10);
   if (!Number.isInteger(cartItemId) || cartItemId <= 0) {
     return next(new ClientError('invalid cartItemId', 400));
   }
   const sql = `
-  delete from "cartItems"
-  where "cartItemId" = $1
-  returning *
-`;
+    delete from "cartItems"
+    where "cartItemId" = $1
+    returning *
+  `;
   const params = [cartItemId];
   db.query(sql, params)
     .then(result => {
