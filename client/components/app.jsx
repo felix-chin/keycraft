@@ -71,13 +71,12 @@ export default class App extends React.Component {
     fetch(`/api/cart/${cartItemId}`, {
       method: 'DELETE'
     })
-      .then(res => console.log(res))
       .then(data => {
         const newCart = this.state.cart.slice(0);
         const index = newCart.findIndex(cart => cartItemId === cart.cartItemId);
         newCart.splice(index, 1);
         this.setState({ cart: newCart });
-      })
+      });
   }
 
   placeOrder(order) {
@@ -122,9 +121,9 @@ export default class App extends React.Component {
     }
     return (
       <>
-        {/* { this.state.disclaimer &&
+        { this.state.disclaimer &&
           <Disclaimer closeDisclaimer={this.closeDisclaimer} />
-        } */}
+        }
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         <div className="bg-light">
           {renderPage}
