@@ -18,9 +18,22 @@ export default function CartSummary(props) {
         {'< Back to catalog'}
       </span>
       <h3 className="my-3">My Cart</h3>
-      <div className="container">
-        {cartItems}
-      </div>
+      <table className="table bg-white">
+        <thead className="thead-light">
+          <tr className="">
+            <th className="text-center">Product</th>
+            <th className="">Product Name</th>
+            <th className="text-center">Quantity</th>
+            <th className="text-center">Price</th>
+          </tr>
+        </thead>
+        <tbody className="">
+          {cartItems}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+      </table>
       {cart.length === 0 &&
         <h4>Cart is empty</h4>
       }
@@ -33,7 +46,7 @@ export default function CartSummary(props) {
               setView('checkout', {});
             }
           }}
-          className="btn">
+          className="btn btn-lg btn-color">
             Checkout
         </button>
       </div>

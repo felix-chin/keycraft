@@ -134,3 +134,12 @@ hr {
 .back:hover {
   transform: scale(1.2);
 }
+
+.cart-img {
+  height: 5rem;
+  object-fit: contain;
+}
+
+.cart-qty {
+  width: 25px;
+}

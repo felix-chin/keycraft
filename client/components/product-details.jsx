@@ -61,6 +61,9 @@ export default class ProductDetails extends React.Component {
   }
 
   increaseQty() {
+    if (this.state.quantity === 10) {
+      return;
+    }
     this.setState(prevState => ({ quantity: prevState.quantity + 1 }));
   }
 

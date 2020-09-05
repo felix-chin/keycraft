@@ -54,7 +54,7 @@ export default class App extends React.Component {
         product: product,
         selectedSwitch: selectedSwitch,
         quantity: quantity
-       })
+      })
     })
       .then(res => res.json())
       .then(data => {

@@ -39,7 +39,7 @@ export default function OptionsModal(props) {
           </h5>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
-        <h5>Select a switch:</h5>
+        <h5>Select switches:</h5>
         {switches.map((item, i) =>
           <div key={i} className="form-check">
             <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input" />
