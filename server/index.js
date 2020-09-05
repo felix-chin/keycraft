@@ -58,6 +58,7 @@ app.get('/api/cart', (req, res, next) => {
     select "c"."cartItemId",
            "c"."price",
            "c"."selectedSwitch",
+           "c"."quantity",
            "p"."productId",
            "p"."image",
            "p"."name",
@@ -113,11 +114,11 @@ app.post('/api/cart', (req, res, next) => {
     .then(result => {
       req.session.cartId = result.cartId;
       const sql = `
-        insert into "cartItems" ("cartId", "productId", "price", "selectedSwitch")
-             values ($1, $2, $3, $4)
+        insert into "cartItems" ("cartId", "productId", "price", "selectedSwitch", "quantity")
+             values ($1, $2, $3, $4, $5)
           returning "cartItemId"
       `;
-      const params = [result.cartId, productId, result.price, req.body.option];
+      const params = [result.cartId, productId, result.price, req.body.selectedSwitch, req.body.quantity];
       return db.query(sql, params)
         .then(result => result.rows[0]);
     })
@@ -126,6 +127,7 @@ app.post('/api/cart', (req, res, next) => {
         select "c"."cartItemId",
                "c"."price",
                "c"."selectedSwitch",
+               "c"."quantity",
                "p"."productId",
                "p"."image",
                "p"."name",
@@ -137,6 +139,30 @@ app.post('/api/cart', (req, res, next) => {
       const params = [result.cartItemId];
       return db.query(sql, params)
         .then(result => res.status(201).json(result.rows[0]));
+    })
+    .catch(err => next(err));
+});
+
+app.delete('/api/cart/:cartItemId', (req, res, next) => {
+  const cartItemId = parseInt(req.params.cartItemId, 10);
+  if (!Number.isInteger(cartItemId) || cartItemId <= 0) {
+    return next(new ClientError('invalid cartItemId', 400));
+  }
+  const sql = `
+    delete from "cartItems"
+    where "cartItemId" = $1
+    returning *
+  `;
+  const params = [cartItemId];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        res.status(404).json({
+          error: `Cannot find cartItemId ${cartItemId}`
+        });
+      } else {
+        res.status(204).json(result.rows[0]);
+      }
     })
     .catch(err => next(err));
 });

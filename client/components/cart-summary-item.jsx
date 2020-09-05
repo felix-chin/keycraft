@@ -3,13 +3,21 @@ import React from 'react';
 export default function CartSummaryItem(props) {
   const item = props.item;
   return (
-    <div className="row border bg-white shadow-sm my-3 p-4">
-      <img src={item.image} alt={item.name} className="col-md-4 object-fit" />
-      <div className="d-flex flex-column justify-content-center col-md-8">
-        <h4 className="card-title">{item.name}</h4>
-        <h6 className="card-text text-muted">{'$' + (item.price / 100).toFixed(2)}</h6>
-        <p className="card-text">{item.shortDescription}</p>
-      </div>
-    </div>
+    <tr>
+      <td className="text-center">
+        <img src={item.image} alt={item.name} className="cart-img" />
+      </td>
+      <td className="d-flex flex-column">
+        <h5>{item.name}</h5>
+        <span><strong>Switches: </strong>{item.selectedSwitch}</span>
+      </td>
+      <td className="text-center cart-qty">
+        <span className="border rounded py-1 px-2">{item.quantity}</span>
+        <span>
+          <i onClick={props.removeFromCart} className="fas fa-trash pl-2 text-secondary cursor-pointer"></i>
+        </span>
+      </td>
+      <td className="text-center">{'$' + (item.price / 100).toFixed(2)}</td>
+    </tr>
   );
 }

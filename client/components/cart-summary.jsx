@@ -4,22 +4,39 @@ import CartSummaryItem from './cart-summary-item';
 export default function CartSummary(props) {
   const setView = props.setView;
   const cart = props.cart;
+  const removeFromCart = props.removeFromCart;
   const totalPrice = cart.reduce((sum, item) => {
     return sum + item.price;
   }, 0);
   const cartItems = cart.map(item =>
-    <CartSummaryItem key={item.cartItemId} item={item} />
+    <CartSummaryItem key={item.cartItemId} item={item} removeFromCart={() => removeFromCart(item.cartItemId)}/>
   );
   return (
-    <div className="container">
+    <div className="container py-3">
       <span
         onClick={() => setView('catalog', {})}
-        className="text-muted ml-1 cursor-pointer">
-        {'< Back to catalog'}
+        className="col-md-auto text-muted cursor-pointer h5 m-0">
+        <i className="fas fa-arrow-circle-left"></i>
+        {' Back to catalog'}
       </span>
       <h3 className="my-3">My Cart</h3>
-      <div className="container">
-        {cartItems}
+      <div className="table-responsive">
+        <table className="table bg-white">
+          <thead className="thead-light">
+            <tr className="">
+              <th className="text-center">Product</th>
+              <th>Product Name</th>
+              <th className="text-center">Quantity</th>
+              <th className="text-center">Price</th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {cartItems}
+          </tbody>
+          <tfoot>
+
+          </tfoot>
+        </table>
       </div>
       {cart.length === 0 &&
         <h4>Cart is empty</h4>
@@ -33,7 +50,7 @@ export default function CartSummary(props) {
               setView('checkout', {});
             }
           }}
-          className="btn">
+          className="btn btn-lg btn-color">
             Checkout
         </button>
       </div>

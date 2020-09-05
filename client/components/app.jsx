@@ -18,6 +18,7 @@ export default class App extends React.Component {
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.removeFromCart = this.removeFromCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.closeDisclaimer = this.closeDisclaimer.bind(this);
   }
@@ -44,13 +45,17 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
-  addToCart(product, option) {
+  addToCart(product, selectedSwitch, quantity) {
     fetch('/api/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ product: product, option: option })
+      body: JSON.stringify({
+        product: product,
+        selectedSwitch: selectedSwitch,
+        quantity: quantity
+      })
     })
       .then(res => res.json())
       .then(data => {
@@ -60,6 +65,19 @@ export default class App extends React.Component {
         });
       })
       .catch(err => console.error(err));
+  }
+
+  removeFromCart(cartItemId) {
+    fetch(`/api/cart/${cartItemId}`, {
+      method: 'DELETE'
+    })
+      .then(res => console.log(res))
+      .then(data => {
+        const newCart = this.state.cart.slice(0);
+        const index = newCart.findIndex(cart => cartItemId === cart.cartItemId);
+        newCart.splice(index, 1);
+        this.setState({ cart: newCart });
+      })
   }
 
   placeOrder(order) {
@@ -98,7 +116,7 @@ export default class App extends React.Component {
         productId={this.state.view.params.productId}
         addToCart={this.addToCart} />;
     } else if (view === 'cart') {
-      renderPage = <CartSummary setView={this.setView} cart={this.state.cart} />;
+      renderPage = <CartSummary setView={this.setView} cart={this.state.cart} removeFromCart={this.removeFromCart} />;
     } else if (view === 'checkout') {
       renderPage = <CheckoutForm setView={this.setView} placeOrder={this.placeOrder} cart={this.state.cart} />;
     }

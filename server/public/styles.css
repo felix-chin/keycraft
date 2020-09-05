@@ -134,3 +134,17 @@ hr {
 .back:hover {
   transform: scale(1.2);
 }
+
+.cart-img {
+  height: 5rem;
+}
+
+@media only screen and (max-width: 414px) {
+  .cart-img {
+    height: 2rem;
+  }
+}
+
+.cart-qty {
+  font-size: 18px;
+}

@@ -17,7 +17,7 @@ export default function OptionsModal(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addToCart(product, selectedSwitch.switch);
+    addToCart(product, selectedSwitch.switch, 1);
     closeOptions();
   };
 
@@ -39,7 +39,7 @@ export default function OptionsModal(props) {
           </h5>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
-        <h5>Select a switch:</h5>
+        <h5>Select switches:</h5>
         {switches.map((item, i) =>
           <div key={i} className="form-check">
             <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input" />
@@ -50,7 +50,7 @@ export default function OptionsModal(props) {
         )
         }
         <div className="d-flex justify-content-between align-items-center">
-          <span className="text-muted price">{'$' + (product.price / 100).toFixed(2)}</span>
+          <h3 className="price m-0">{'$' + (product.price / 100).toFixed(2)}</h3>
           <button type="submit" className="btn btn-lg btn-color mt-2">
             Add to Cart
           </button>

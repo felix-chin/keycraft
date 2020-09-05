@@ -75,7 +75,8 @@ CREATE TABLE public."cartItems" (
     "cartId" integer NOT NULL,
     "productId" integer NOT NULL,
     price integer NOT NULL,
-    "selectedSwitch" text NOT NULL
+    "selectedSwitch" text NOT NULL,
+    quantity integer NOT NULL
 );
 
 

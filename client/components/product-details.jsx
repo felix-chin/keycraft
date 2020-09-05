@@ -50,7 +50,7 @@ export default class ProductDetails extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const addToCart = this.props.addToCart;
-    addToCart(product, this.state.switch);
+    addToCart(this.state.product, this.state.switch, this.state.quantity);
   }
 
   decreaseQty() {
@@ -61,6 +61,9 @@ export default class ProductDetails extends React.Component {
   }
 
   increaseQty() {
+    if (this.state.quantity === 10) {
+      return;
+    }
     this.setState(prevState => ({ quantity: prevState.quantity + 1 }));
   }
 
@@ -73,8 +76,8 @@ export default class ProductDetails extends React.Component {
     } else {
       return (
         <section>
-          <div className="container">
-            <div className="my-3">
+          <div className="container py-3">
+            <div className="pb-3">
               <span
                 onClick={() => setView('catalog', {})}
                 className="col-md-auto text-muted cursor-pointer h5 m-0">
@@ -83,8 +86,8 @@ export default class ProductDetails extends React.Component {
               </span>
             </div>
             <div className="row bg-white border rounded shadow-sm py-3">
-              <img src={product.image} className="col-md-7 object-fit" />
-              <form onSubmit={this.handleSubmit} className="col-md-5">
+              <img src={product.image} className="col-md-8 object-fit" />
+              <form onSubmit={this.handleSubmit} className="col-md-4">
                 <h3>{product.name}</h3>
                 <h3 className="price">{'$' + (product.price / 100).toFixed(2)}</h3>
                 <p className="lead">{product.shortDescription}</p>
