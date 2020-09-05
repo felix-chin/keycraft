@@ -143,6 +143,30 @@ app.post('/api/cart', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.delete('/api/cart', (req, res, next) => {
+  const cartItemId = parseInt(req.body.cartItemId, 10);
+  if (!Number.isInteger(cartItemId) || cartItemId <= 0) {
+    return next(new ClientError('invalid cartItemId', 400));
+  }
+  const sql = `
+  delete from "cartItems"
+  where "cartItemId" = $1
+  returning *
+`;
+  const params = [cartItemId];
+  db.query(sql, params)
+    .then(result => {
+      if (!result.rows[0]) {
+        res.status(404).json({
+          error: `Cannot find cartItemId ${cartItemId}`
+        });
+      } else {
+        res.status(204).json(result.rows[0]);
+      }
+    })
+    .catch(err => next(err));
+});
+
 app.post('/api/orders', (req, res, next) => {
   const order = req.body;
   if (!req.session.cartId) {
