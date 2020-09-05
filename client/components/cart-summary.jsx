@@ -11,29 +11,32 @@ export default function CartSummary(props) {
     <CartSummaryItem key={item.cartItemId} item={item} />
   );
   return (
-    <div className="container">
+    <div className="container py-3">
       <span
         onClick={() => setView('catalog', {})}
-        className="text-muted ml-1 cursor-pointer">
-        {'< Back to catalog'}
+        className="col-md-auto text-muted cursor-pointer h5 m-0">
+        <i className="fas fa-arrow-circle-left"></i>
+        {' Back to catalog'}
       </span>
       <h3 className="my-3">My Cart</h3>
-      <table className="table bg-white">
-        <thead className="thead-light">
-          <tr className="">
-            <th className="text-center">Product</th>
-            <th className="">Product Name</th>
-            <th className="text-center">Quantity</th>
-            <th className="text-center">Price</th>
-          </tr>
-        </thead>
-        <tbody className="">
-          {cartItems}
-        </tbody>
-        <tfoot>
+      <div className="table-responsive">
+        <table className="table bg-white">
+          <thead className="thead-light">
+            <tr className="">
+              <th className="text-center">Product</th>
+              <th>Product Name</th>
+              <th className="text-center">Quantity</th>
+              <th className="text-center">Price</th>
+            </tr>
+          </thead>
+          <tbody className="">
+            {cartItems}
+          </tbody>
+          <tfoot>
 
-        </tfoot>
-      </table>
+          </tfoot>
+        </table>
+      </div>
       {cart.length === 0 &&
         <h4>Cart is empty</h4>
       }

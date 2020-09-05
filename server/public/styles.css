@@ -137,9 +137,14 @@ hr {
 
 .cart-img {
   height: 5rem;
-  object-fit: contain;
+}
+
+@media only screen and (max-width: 414px) {
+  .cart-img {
+    height: 2rem;
+  }
 }
 
 .cart-qty {
-  width: 25px;
+  font-size: 18px;
 }
