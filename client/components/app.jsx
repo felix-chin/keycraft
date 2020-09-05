@@ -77,7 +77,7 @@ export default class App extends React.Component {
         const index = newCart.findIndex(cart => cartItemId === cart.cartItemId);
         newCart.splice(index, 1);
         this.setState({ cart: newCart });
-      })
+      });
   }
 
   placeOrder(order) {
