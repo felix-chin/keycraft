@@ -35,14 +35,14 @@ export default function OptionsModal(props) {
         <div className="d-flex justify-content-between">
           <h5>{product.name}</h5>
           <h5>
-            <i onClick={closeOptions} className="fas fa-times cursor-pointer"></i>
+            <i onClick={closeOptions} className="fas fa-times cursor-pointer hover"></i>
           </h5>
         </div>
         <img src={product.image} alt={product.name} className="modal-thumbnail"/>
         <h5>Select switches:</h5>
         {switches.map((item, i) =>
           <div key={i} className="form-check">
-            <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input" />
+            <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input cursor-pointer" />
             <label htmlFor={item} className="form-check-label">
               {item}
             </label>

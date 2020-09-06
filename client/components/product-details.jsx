@@ -78,10 +78,8 @@ export default class ProductDetails extends React.Component {
         <section>
           <div className="container py-3">
             <div className="pb-3">
-              <span
-                onClick={() => setView('catalog', {})}
-                className="col-md-auto text-muted cursor-pointer h5 m-0">
-                <i className="fas fa-arrow-circle-left"></i>
+              <span className="col-md-auto d-flex flex-row align-items-center text-muted">
+                <i onClick={() => setView('catalog', {})} className="fas fa-arrow-circle-left hover cursor-pointer h2 m-0 pr-2"></i>
                 {' Back to catalog'}
               </span>
             </div>
@@ -98,7 +96,7 @@ export default class ProductDetails extends React.Component {
                     defaultValue=""
                     onChange={this.handleChange}
                     required
-                    className="form-control form-control-lg">
+                    className="form-control form-control-lg cursor-pointer">
                     <option value="" disabled>Select a switch</option>
                     { this.state.switches.map((item, i) =>
                       <option key={i} value={item}>{item}</option>
@@ -107,9 +105,9 @@ export default class ProductDetails extends React.Component {
                   </select>
                 </div>
                 <div className="form-row d-flex justify-content-between">
-                  <div className="form-group d-flex flex-row align-items-center mx-1">
-                    <label htmlFor="quantity" className="qty-text mr-2">Qty:</label>
-                    <i onClick={this.decreaseQty} className="fas fa-minus-circle qty-btn"></i>
+                  <div className="form-group d-flex flex-row align-items-center">
+                    <label htmlFor="quantity" className="qty-text mr-1">Qty:</label>
+                    <i onClick={this.decreaseQty} className="fas fa-minus-circle btn qty-btn cursor-pointer p-0"></i>
                     <input
                       type="text"
                       name="quantity"
@@ -118,7 +116,7 @@ export default class ProductDetails extends React.Component {
                       onChange={this.handleChange}
                       readOnly
                       className="form-control form-control-lg text-center mx-1" />
-                    <i onClick={this.increaseQty} className="fas fa-plus-circle qty-btn"></i>
+                    <i onClick={this.increaseQty} className="fas fa-plus-circle btn qty-btn cursor-pointer p-0"></i>
                   </div>
                   <div className="text-right">
                     <button
