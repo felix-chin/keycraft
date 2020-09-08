@@ -44,9 +44,10 @@ body {
 
 .hero {
   background-image: linear-gradient(rgba(30, 30, 30, 0.4), rgba(10, 10, 10, 0.8)), url("./images/hero.jpg");
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 

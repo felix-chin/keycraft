@@ -81,50 +81,52 @@ export default class ProductDetails extends React.Component {
               <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
               {' Back to Catalog'}
             </span>
-            <div className="d-flex bg-white border rounded shadow-sm py-3">
-              <img src={product.image} className="col-md-8 object-fit" />
-              <form onSubmit={this.handleSubmit} className="col-md-4">
-                <h4>{product.name}</h4>
-                <h4 className="price">{'$' + (product.price / 100).toFixed(2)}</h4>
-                <p>{product.shortDescription}</p>
-                <div className="form-group">
-                  <select
-                    name="switch"
-                    value={this.state.value}
-                    defaultValue=""
-                    onChange={this.handleChange}
-                    required
-                    className="form-control cursor-pointer">
-                    <option value="" disabled>Select a switch</option>
-                    {this.state.switches.map((item, i) =>
-                      <option key={i} value={item}>{item}</option>
-                    )
-                    }
-                  </select>
-                </div>
-                <div className="d-flex justify-content-between">
-                  <div className="form-group d-flex flex-row align-items-center">
-                    <label htmlFor="quantity" className="qty-text mr-1 mb-0">Qty:</label>
-                    <i onClick={this.decreaseQty} className="fas fa-minus-circle btn qty-btn cursor-pointer p-0"></i>
-                    <input
-                      type="text"
-                      name="quantity"
-                      value={this.state.quantity}
-                      size="1"
+            <div className="container bg-white border rounded shadow-sm py-3">
+              <div className="row">
+                <img src={product.image} className="col-lg-8 object-fit" />
+                <form onSubmit={this.handleSubmit} className="col-lg-4">
+                  <h4>{product.name}</h4>
+                  <h4 className="price">{'$' + (product.price / 100).toFixed(2)}</h4>
+                  <p>{product.shortDescription}</p>
+                  <div className="form-group">
+                    <select
+                      name="switch"
+                      value={this.state.value}
+                      defaultValue=""
                       onChange={this.handleChange}
-                      readOnly
-                      className="form-control text-center mx-1" />
-                    <i onClick={this.increaseQty} className="fas fa-plus-circle btn qty-btn cursor-pointer p-0"></i>
+                      required
+                      className="form-control cursor-pointer">
+                      <option value="" disabled>Select a switch</option>
+                      {this.state.switches.map((item, i) =>
+                        <option key={i} value={item}>{item}</option>
+                      )
+                      }
+                    </select>
                   </div>
-                  <div className="text-right">
-                    <button
-                      type="submit"
-                      className="btn btn-color">
-                      Add to Cart
-                    </button>
+                  <div className="d-flex justify-content-between">
+                    <div className="form-group d-flex flex-row align-items-center">
+                      <label htmlFor="quantity" className="qty-text mr-1 mb-0">Qty:</label>
+                      <i onClick={this.decreaseQty} className="fas fa-minus-circle btn qty-btn cursor-pointer p-0"></i>
+                      <input
+                        type="text"
+                        name="quantity"
+                        value={this.state.quantity}
+                        size="1"
+                        onChange={this.handleChange}
+                        readOnly
+                        className="form-control text-center mx-1" />
+                      <i onClick={this.increaseQty} className="fas fa-plus-circle btn qty-btn cursor-pointer p-0"></i>
+                    </div>
+                    <div className="text-right">
+                      <button
+                        type="submit"
+                        className="btn btn-color">
+                        Add to Cart
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </section>
