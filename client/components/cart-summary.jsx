@@ -25,6 +25,7 @@ export default function CartSummary(props) {
               <th className="text-center">Product</th>
               <th>Product Name</th>
               <th className="text-center">Quantity</th>
+              <th className="text-center">Price</th>
               <th className="text-center">Subtotal</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@ export default function CartSummary(props) {
           </tbody>
           <tfoot>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
