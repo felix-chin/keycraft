@@ -8,7 +8,7 @@ export default function Header(props) {
         <div className="container justify-content-between">
           <div className="navbar-brand d-flex align-items-center">
             <i className="fas fa-keyboard mr-2"></i>
-            <strong>Keycraft</strong>
+            <span className="russo-font">KEYCRAFT</span>
           </div>
           <div onClick={() => setView('cart', {})} className="d-flex align-items-center text-white cursor-pointer">
             <span className="mr-2">{props.cartItemCount} Items</span>

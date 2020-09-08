@@ -7,8 +7,8 @@ export default function ProductListItem(props) {
       <div className="card-body">
         <h4 className="card-title">{props.name}</h4>
         <div className="d-flex justify-content-between my-2">
-          <h3 className="card-text price m-0">{props.price}</h3>
-          <button onClick={props.openOptions} className="btn btn-lg btn-color">
+          <h4 className="card-text price m-0">{props.price}</h4>
+          <button onClick={props.openOptions} className="btn btn-color">
             Add to Cart
           </button>
         </div>

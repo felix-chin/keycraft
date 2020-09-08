@@ -42,7 +42,7 @@ export default class ProductList extends React.Component {
     const setView = this.props.setView;
     const products = this.state.products;
     const productListItems = products.map(product =>
-      <div key={product.productId} className="col-md-4 mb-4">
+      <div key={product.productId} className="col-lg-4 col-md-6 mb-4">
         <ProductListItem
           setView={() => setView('details', { productId: product.productId })}
           image={product.image}
@@ -53,19 +53,19 @@ export default class ProductList extends React.Component {
       </div>
     );
     return (
-      <>
+      <main>
         {this.state.optionsModal &&
           <OptionsModal closeOptions={this.closeOptions} product={this.state.product} addToCart={this.props.addToCart} />
         }
         <Hero />
-        <div className="container">
+        <section className="container">
           <div className="row">
             <div className='card-group'>
               {productListItems}
             </div>
           </div>
-        </div>
-      </>
+        </section>
+      </main>
     );
   }
 }

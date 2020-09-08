@@ -12,10 +12,10 @@ export default function CartSummary(props) {
     <CartSummaryItem key={item.cartItemId} item={item} removeFromCart={() => removeFromCart(item.cartItemId)}/>
   );
   return (
-    <div className="container py-3">
-      <span className="col-md-auto d-flex flex-row align-items-center text-muted">
-        <i onClick={() => setView('catalog', {})} className="fas fa-arrow-circle-left hover cursor-pointer h2 m-0 pr-2"></i>
-        {' Back to catalog'}
+    <section className="container py-3">
+      <span className="d-flex flex-row align-items-center text-muted">
+        <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
+        {' Back to Catalog'}
       </span>
       <h3 className="my-3">My Cart</h3>
       <div className="table-responsive">
@@ -25,6 +25,7 @@ export default function CartSummary(props) {
               <th className="text-center">Product</th>
               <th>Product Name</th>
               <th className="text-center">Quantity</th>
+              <th className="text-center">Item Price</th>
               <th className="text-center">Subtotal</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@ export default function CartSummary(props) {
           </tbody>
           <tfoot>
             <tr>
+              <td></td>
               <td></td>
               <td></td>
               <td></td>
@@ -54,10 +56,10 @@ export default function CartSummary(props) {
               setView('checkout', {});
             }
           }}
-          className="btn btn-lg btn-color">
+          className="btn btn-color">
             Checkout
         </button>
       </div>
-    </div>
+    </section>
   );
 }

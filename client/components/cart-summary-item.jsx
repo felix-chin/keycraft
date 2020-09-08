@@ -17,6 +17,7 @@ export default function CartSummaryItem(props) {
           <i onClick={props.removeFromCart} className="fas fa-trash pl-2 text-secondary cursor-pointer hover"></i>
         </span>
       </td>
+      <td className="text-center">{'$' + (item.price / 100).toFixed(2)}</td>
       <td className="text-center">{'$' + (item.price * item.quantity / 100).toFixed(2)}</td>
     </tr>
   );

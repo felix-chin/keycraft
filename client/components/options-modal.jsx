@@ -33,7 +33,7 @@ export default function OptionsModal(props) {
     <section className="modal-overlay d-flex">
       <form onSubmit={handleSubmit} className="options-content p-3">
         <div className="d-flex justify-content-between">
-          <h5>{product.name}</h5>
+          <h4>{product.name}</h4>
           <h5>
             <i onClick={closeOptions} className="fas fa-times cursor-pointer hover"></i>
           </h5>
@@ -50,8 +50,8 @@ export default function OptionsModal(props) {
         )
         }
         <div className="d-flex justify-content-between align-items-center">
-          <h3 className="price m-0">{'$' + (product.price / 100).toFixed(2)}</h3>
-          <button type="submit" className="btn btn-lg btn-color mt-2">
+          <h4 className="price m-0">{'$' + (product.price / 100).toFixed(2)}</h4>
+          <button type="submit" className="btn btn-color mt-2">
             Add to Cart
           </button>
         </div>
