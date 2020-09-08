@@ -125,7 +125,7 @@ export default class App extends React.Component {
           <Disclaimer closeDisclaimer={this.closeDisclaimer} />
         }
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
-        <div className="bg-light">
+        <div>
           {renderPage}
         </div>
       </>

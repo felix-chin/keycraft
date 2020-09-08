@@ -53,19 +53,19 @@ export default class ProductList extends React.Component {
       </div>
     );
     return (
-      <>
+      <main>
         {this.state.optionsModal &&
           <OptionsModal closeOptions={this.closeOptions} product={this.state.product} addToCart={this.props.addToCart} />
         }
         <Hero />
-        <div className="container">
+        <section className="container">
           <div className="row">
             <div className='card-group'>
               {productListItems}
             </div>
           </div>
-        </div>
-      </>
+        </section>
+      </main>
     );
   }
 }

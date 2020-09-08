@@ -31,10 +31,10 @@ export default class CheckoutForm extends React.Component {
       return sum + item.price;
     }, 0);
     return (
-      <div className="container">
+      <section className="container pb-4">
         <form onSubmit={this.handleSubmit}>
-          <h3 className="mt-2">Checkout</h3>
-          <h5 className="text-muted my-4">Order Total: ${(totalPrice / 100).toFixed(2)}</h5>
+          <h3 className="py-2">Checkout</h3>
+          <h5 className="text-muted pb-4">Order Total: ${(totalPrice / 100).toFixed(2)}</h5>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
@@ -67,11 +67,14 @@ export default class CheckoutForm extends React.Component {
               className="form-control" />
           </div>
           <div className="d-flex justify-content-between">
-            <span onClick={() => setView('catalog', {})} className="text-muted cursor-pointer">{'< Continue Shopping'}</span>
-            <button type="submit" className="btn btn-primary">Place Order</button>
+            <span className="d-flex flex-row align-items-center text-muted">
+              <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
+              {' Continue Shopping'}
+            </span>
+            <button type="submit" className="btn btn-color">Place Order</button>
           </div>
         </form>
-      </div>
+      </section>
     );
   }
 }
