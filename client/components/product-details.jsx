@@ -83,7 +83,7 @@ export default class ProductDetails extends React.Component {
             </span>
             <div className="container bg-white border rounded shadow-sm py-3">
               <div className="row">
-                <img src={product.image} className="object-fit" />
+                <img src={product.image} className="col-lg-8 object-fit" />
                 <form onSubmit={this.handleSubmit} className="col-lg-4">
                   <h4>{product.name}</h4>
                   <h4 className="price">{'$' + (product.price / 100).toFixed(2)}</h4>
