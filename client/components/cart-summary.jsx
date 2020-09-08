@@ -21,7 +21,7 @@ export default function CartSummary(props) {
       <div className="table-responsive">
         <table className="table bg-white">
           <thead className="thead-light">
-            <tr className="">
+            <tr>
               <th className="text-center">Product</th>
               <th>Product Name</th>
               <th className="text-center">Quantity</th>
@@ -32,14 +32,27 @@ export default function CartSummary(props) {
           <tbody>
             {cartItems}
           </tbody>
-          <tfoot>
+          <tfoot className="table-active">
             <tr>
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <td className="text-right">
+                <h6>Shipping:</h6>
+              </td>
               <td className="text-center">
-                <h5>Total: ${(totalPrice / 100).toFixed(2)}</h5>
+                <h6>Free</h6>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td className="text-right">
+                <h6>Total:</h6>
+              </td>
+              <td className="text-center">
+                <h6>${(totalPrice / 100).toFixed(2)}</h6>
               </td>
             </tr>
           </tfoot>

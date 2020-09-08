@@ -7,7 +7,7 @@ export default function CartSummaryItem(props) {
       <td className="text-center">
         <img src={item.image} alt={item.name} className="cart-img" />
       </td>
-      <td className="d-flex flex-column">
+      <td>
         <h5>{item.name}</h5>
         <span><strong>Switches: </strong>{item.selectedSwitch}</span>
       </td>
