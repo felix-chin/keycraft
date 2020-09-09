@@ -128,6 +128,12 @@ export default class App extends React.Component {
         <div>
           {renderPage}
         </div>
+        <hr className="footer" />
+        <div className="text-center pb-3">
+          <span>
+            Keycraft is a demo website developed by Felix Chin | Portfolio @ <a href="https://felixchin.com" target="_blank" rel="noopener noreferrer">felixchin.com</a>
+          </span>
+        </div>
       </>
     );
   }

@@ -4,7 +4,7 @@ export default function Header(props) {
   const setView = props.setView;
   return (
     <header>
-      <div className="navbar navbar-dark navbar-bg">
+      <div className="navbar navbar-dark navbar-bg fixed-top">
         <div className="container justify-content-between">
           <div className="navbar-brand d-flex align-items-center">
             <i className="fas fa-keyboard mr-2"></i>

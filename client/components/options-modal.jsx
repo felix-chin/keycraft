@@ -30,7 +30,8 @@ export default function OptionsModal(props) {
   }
 
   return (
-    <section className="modal-overlay d-flex">
+    <section className="modal-overlay modal-shade d-flex">
+      <div onClick={e => closeOptions(e)} className="modal-overlay"></div>
       <form onSubmit={handleSubmit} className="options-content p-3">
         <div className="d-flex justify-content-between">
           <h4>{product.name}</h4>
@@ -38,11 +39,17 @@ export default function OptionsModal(props) {
             <i onClick={closeOptions} className="fas fa-times cursor-pointer hover"></i>
           </h5>
         </div>
-        <img src={product.image} alt={product.name} className="modal-thumbnail"/>
+        <img src={product.image} alt={product.name} className="options-thumbnail"/>
         <h5>Select switches:</h5>
         {switches.map((item, i) =>
           <div key={i} className="form-check">
-            <input type="radio" name="switch" value={item} onChange={handleChange} required className="form-check-input cursor-pointer" />
+            <input
+              type="radio"
+              name="switch"
+              value={item}
+              onChange={handleChange}
+              required
+              className="form-check-input cursor-pointer" />
             <label htmlFor={item} className="form-check-label">
               {item}
             </label>

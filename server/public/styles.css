@@ -1,5 +1,6 @@
 body {
   background-color: #F8F9FA;
+  padding-top: 56px;;
 }
 
 .navbar-bg {
@@ -19,8 +20,6 @@ body {
 }
 
 .modal-overlay {
-  background-color: rgba(65, 65, 65, 0.85);
-  color: black;
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -28,7 +27,11 @@ body {
   justify-content: center;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 1040;
+}
+
+.modal-shade {
+  background-color: rgba(65, 65, 65, 0.85);
 }
 
 .disclaimer-content {
@@ -44,10 +47,11 @@ body {
 
 .hero {
   background-image: linear-gradient(rgba(30, 30, 30, 0.4), rgba(10, 10, 10, 0.8)), url("./images/hero.jpg");
-  background-position: bottom;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  min-height: 95vh;
 }
 
 
@@ -65,6 +69,7 @@ body {
   background-color: white;
   border: 4px solid #FC7400;
   width: 300px;
+  z-index: 1041;
 }
 
 @media only screen and (max-width: 667px) {
@@ -81,7 +86,7 @@ body {
   }
 }
 
-.modal-thumbnail {
+.options-thumbnail {
   width: 75%;
 }
 
@@ -99,7 +104,7 @@ body {
   cursor: pointer;
 }
 
-hr {
+.hero-text hr {
   height: 1px;
   width: 40%;
   background-color: white;
@@ -142,4 +147,8 @@ hr {
 
 .cart-qty {
   font-size: 18px;
+}
+
+.footer {
+  background-color: rgb(95, 95, 95);
 }

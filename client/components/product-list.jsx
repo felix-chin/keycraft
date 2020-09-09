@@ -34,7 +34,8 @@ export default class ProductList extends React.Component {
     });
   }
 
-  closeOptions() {
+  closeOptions(e) {
+    e.stopPropagation();
     this.setState({ optionsModal: false });
   }
 
