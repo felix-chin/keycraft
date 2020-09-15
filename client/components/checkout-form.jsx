@@ -54,7 +54,7 @@ export default class CheckoutForm extends React.Component {
         <h3 className=" font-weight-bold mt-3">Checkout</h3>
         <div className="d-flex justify-content-between align-items-center text-center bg-dark text-white py-2 my-3">
           <span className="h2 pl-4 mb-0"><i className="fas fa-exclamation-triangle"></i></span>
-          <h6 className="mb-0">This application is for demonstration purposes only and the products listed are not actually for sale. <br />Please do not enter any real payment information.</h6>
+          <h6 className="mb-0">This application is for demonstration purposes only and the products listed are not actually for sale. <br />Please do not share any real payment information.</h6>
           <span className="h2 pr-4 mb-0"><i className="fas fa-exclamation-triangle"></i></span>
         </div>
         <div className="row">
