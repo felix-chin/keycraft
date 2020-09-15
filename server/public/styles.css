@@ -62,7 +62,6 @@ body {
   min-height: 95vh;
 }
 
-
 .hero-text {
   text-align: center;
 }
@@ -155,6 +154,15 @@ body {
 
 .cart-qty {
   font-size: 18px;
+}
+
+.cc-icons {
+  font-size: 1.3rem;
+}
+
+.checkout-checkbox {
+  color: white;
+  background-color: rgb(60, 70, 70);
 }
 
 .footer {
