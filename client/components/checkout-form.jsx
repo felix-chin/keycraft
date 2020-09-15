@@ -47,9 +47,9 @@ export default class CheckoutForm extends React.Component {
     }, 0);
     return (
       <section className="container py-3">
-        <span className="d-flex flex-row align-items-center text-muted">
-          <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
-          {' Continue Shopping'}
+        <span onClick={() => setView('catalog', {})} className="d-flex flex-row align-items-center text-muted cursor-pointer ">
+          <i className="fas fa-chevron-circle-left hover h3 m-0 pr-2"></i>
+          {' Continue shopping'}
         </span>
         <h3 className=" font-weight-bold mt-3">Checkout</h3>
         <div className="d-flex justify-content-between align-items-center text-center bg-dark text-white py-2 my-3">

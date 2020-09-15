@@ -9,6 +9,11 @@ export default function Hero(props) {
         <p className="lead">We stock the latest and greatest mechanical keyboards</p>
         <p className="lead">Free shipping for orders within the US</p>
       </div>
+      <div className="scroll-down text-white">
+        <i className="far fa-hand-point-down fa-2x mr-4"></i>
+        <span className="lead font-italic">Scroll down to see our latest keyboards</span>
+        <i className="far fa-hand-point-down fa-2x ml-4"></i>
+      </div>
     </section>
   );
 }

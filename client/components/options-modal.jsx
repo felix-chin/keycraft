@@ -46,6 +46,7 @@ export default function OptionsModal(props) {
         {switches.map((item, i) =>
           <div key={i} className="form-check">
             <input
+              id={item}
               type="radio"
               name="switch"
               value={item}

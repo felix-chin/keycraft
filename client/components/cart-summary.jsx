@@ -13,8 +13,8 @@ export default function CartSummary(props) {
   );
   return (
     <section className="container py-3">
-      <span className="d-flex flex-row align-items-center text-muted">
-        <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
+      <span onClick={() => setView('catalog', {})} className="d-flex flex-row align-items-center text-muted  cursor-pointer">
+        <i className="fas fa-chevron-circle-left hover h3 m-0 pr-2"></i>
         {' Back to catalog'}
       </span>
       <h3 className="my-3 font-weight-bold">Cart</h3>
