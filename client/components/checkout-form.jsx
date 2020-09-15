@@ -134,7 +134,6 @@ export default class CheckoutForm extends React.Component {
                   type="text"
                   value={this.state.address2}
                   onChange={this.handleChange}
-                  required
                   placeholder="Apartment or suite #"
                   className="form-control" />
               </div>
