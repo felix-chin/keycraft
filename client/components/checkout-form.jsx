@@ -58,7 +58,7 @@ export default class CheckoutForm extends React.Component {
           <span className="h2 pr-4 mb-0"><i className="fas fa-exclamation-triangle"></i></span>
         </div>
         <div className="row">
-          <div className="col-md-4 order-md-2">
+          <div className="col-md-4 order-md-2 mb-4">
             <h4 className="font-weight-bold py-1 d-flex justify-content-between align-items-center">
               <span>Order</span>
             </h4>
