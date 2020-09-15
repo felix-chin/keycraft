@@ -16,8 +16,7 @@ export default class CheckoutForm extends React.Component {
       ccType: '',
       ccNumber: '',
       ccExp: '',
-      ccCVV: '',
-      disclaimer: false
+      ccCVV: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
