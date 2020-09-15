@@ -172,7 +172,7 @@ app.post('/api/orders', (req, res, next) => {
   if (!req.session.cartId) {
     return next(new ClientError('no cartId found in session', 400));
   }
-  if (!order.name || !order.creditCard || !order.shippingAddress) {
+  if (!order.firstName || !order.lastName || !order.address1 || order.city || !order.state || !order.zip || !order.country || !order.ccName || !order.ccType || !order.ccNumber || !order.ccExp || !order.ccCVV) {
     return next(new ClientError('invalid order', 404));
   }
   const sql = `
