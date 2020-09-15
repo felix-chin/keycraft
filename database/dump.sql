@@ -137,9 +137,19 @@ ALTER SEQUENCE public."carts_cartId_seq" OWNED BY public.carts."cartId";
 CREATE TABLE public.orders (
     "orderId" integer NOT NULL,
     "cartId" integer NOT NULL,
-    name text NOT NULL,
-    "creditCard" text NOT NULL,
-    "shippingAddress" text NOT NULL,
+    "firstName" text NOT NULL,
+    "lastName" text NOT NULL,
+    "address1" text NOT NULL,
+    "address2" text NOT NULL,
+    "city" text NOT NULL,
+    "state" text NOT NULL,
+    "zip" text NOT NULL,
+    "country" text NOT NULL,
+    "ccName" text NOT NULL,
+    "ccType" text NOT NULL,
+    "ccNumber" text NOT NULL,
+    "ccExp" text NOT NULL,
+    "ccCVV" text NOT NULL,
     "createdAt" timestamp(6) with time zone DEFAULT now() NOT NULL
 );
 
@@ -246,7 +256,7 @@ COPY public.carts ("cartId", "createdAt") FROM stdin;
 -- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY public.orders ("orderId", "cartId", name, "creditCard", "shippingAddress", "createdAt") FROM stdin;
+COPY public.orders ("orderId", "cartId", "firstName", "lastName", "address1", "address2", "city", "state", "zip", "country", "ccName", "ccType", "ccNumber", "ccExp", "ccCVV", "createdAt") FROM stdin;
 \.
 
 

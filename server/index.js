@@ -176,11 +176,11 @@ app.post('/api/orders', (req, res, next) => {
     return next(new ClientError('invalid order', 404));
   }
   const sql = `
-    insert into "orders" ("cartId", "name", "creditCard", "shippingAddress")
-         values ($1, $2, $3, $4)
-      returning "orderId", "createdAt", "name", "creditCard", "shippingAddress"
+    insert into "orders" ("cartId", "firstName", "lastName", "address1", "address2", "city", "state", "zip", "country", "ccName", "ccType", "ccNumber", "ccExp", "ccCVV")
+         values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
+      returning "orderId", "createdAt", "firstName", "lastName", "address1", "address2", "city", "state", "zip", "country", "ccName", "ccType", "ccNumber", "ccExp", "ccCVV"
   `;
-  const params = [req.session.cartId, order.name, order.creditCard, order.shippingAddress];
+  const params = [req.session.cartId, order.firstName, order.lastName, order.address1, order.address2, order.city, order.state, order.zip, order.country, order.ccName, order.ccType, order.ccNumber, order.ccExp, order.ccCVV];
   return db.query(sql, params)
     .then(result => {
       delete req.session.cartId;
