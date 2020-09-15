@@ -15,9 +15,9 @@ export default function CartSummary(props) {
     <section className="container py-3">
       <span className="d-flex flex-row align-items-center text-muted">
         <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
-        {' Back to Catalog'}
+        {' Back to catalog'}
       </span>
-      <h3 className="my-3">My Cart</h3>
+      <h3 className="my-3 font-weight-bold">Cart</h3>
       <div className="table-responsive">
         <table className="table bg-white">
           <thead className="thead-light">
@@ -33,18 +33,7 @@ export default function CartSummary(props) {
             {cartItems}
           </tbody>
           <tfoot className="table-active">
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td className="text-right">
-                <h6>Shipping:</h6>
-              </td>
-              <td className="text-center">
-                <h6>Free</h6>
-              </td>
-            </tr>
-            <tr>
+            {cartItems.length > 0 && <tr>
               <td></td>
               <td></td>
               <td></td>
@@ -54,7 +43,7 @@ export default function CartSummary(props) {
               <td className="text-center">
                 <h6>${(totalPrice / 100).toFixed(2)}</h6>
               </td>
-            </tr>
+            </tr>}
           </tfoot>
         </table>
       </div>

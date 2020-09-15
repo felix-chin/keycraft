@@ -6,6 +6,7 @@ export default function OptionsModal(props) {
 
   const product = props.product;
   const addToCart = props.addToCart;
+  const itemAdded = props.itemAdded;
   const closeOptions = props.closeOptions;
   let switches = [];
 
@@ -18,7 +19,8 @@ export default function OptionsModal(props) {
   const handleSubmit = e => {
     e.preventDefault();
     addToCart(product, selectedSwitch.switch, 1);
-    closeOptions();
+    closeOptions(e);
+    itemAdded();
   };
 
   if (product.switchOptions === 'basic') {

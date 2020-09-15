@@ -5,6 +5,7 @@ import ProductList from './product-list';
 import ProductDetails from './product-details';
 import CartSummary from './cart-summary';
 import CheckoutForm from './checkout-form';
+import ItemAddedModal from './item-added-modal';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -14,13 +15,15 @@ export default class App extends React.Component {
         params: {}
       },
       cart: [],
-      disclaimer: true
+      disclaimer: true,
+      itemAdded: false
     };
     this.setView = this.setView.bind(this);
     this.addToCart = this.addToCart.bind(this);
     this.removeFromCart = this.removeFromCart.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
     this.closeDisclaimer = this.closeDisclaimer.bind(this);
+    this.itemAdded = this.itemAdded.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +37,12 @@ export default class App extends React.Component {
         params: params
       }
     });
+  }
+
+  itemAdded() {
+    this.setState(prevState => ({
+      itemAdded: !prevState.itemAdded
+    }));
   }
 
   getCartItems() {
@@ -108,12 +117,13 @@ export default class App extends React.Component {
     const view = this.state.view.name;
     let renderPage;
     if (view === 'catalog') {
-      renderPage = <ProductList setView={this.setView} addToCart={this.addToCart} />;
+      renderPage = <ProductList setView={this.setView} addToCart={this.addToCart} itemAdded={this.itemAdded} />;
     } else if (view === 'details') {
       renderPage = <ProductDetails
         setView={this.setView}
         productId={this.state.view.params.productId}
-        addToCart={this.addToCart} />;
+        addToCart={this.addToCart}
+        itemAdded={this.itemAdded} />;
     } else if (view === 'cart') {
       renderPage = <CartSummary setView={this.setView} cart={this.state.cart} removeFromCart={this.removeFromCart} />;
     } else if (view === 'checkout') {
@@ -123,6 +133,9 @@ export default class App extends React.Component {
       <>
         { this.state.disclaimer &&
           <Disclaimer closeDisclaimer={this.closeDisclaimer} />
+        }
+        { this.state.itemAdded &&
+          <ItemAddedModal product={this.state.product} setView={this.setView} itemAdded={this.itemAdded} />
         }
         <Header setView={this.setView} cartItemCount={this.state.cart.length} />
         <div>

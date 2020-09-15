@@ -1,5 +1,6 @@
 body {
-  background-color: #F8F9FA;
+  font-family: 'Open Sans';
+  background-color: #eef3f8;
   padding-top: 56px;;
 }
 
@@ -43,6 +44,13 @@ body {
 
 .disclaimer-content p {
   font-size: 22px;
+}
+
+
+.item-added-content {
+  background-color: white;
+  border: 4px solid #FC7400;
+  text-align: center;
 }
 
 .hero {

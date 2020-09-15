@@ -50,7 +50,9 @@ export default class ProductDetails extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const addToCart = this.props.addToCart;
+    const itemAdded = this.props.itemAdded;
     addToCart(this.state.product, this.state.switch, this.state.quantity);
+    itemAdded();
   }
 
   decreaseQty() {
@@ -79,7 +81,7 @@ export default class ProductDetails extends React.Component {
           <div className="container py-3">
             <span className="d-flex flex-row align-items-center text-muted pb-3">
               <i onClick={() => setView('catalog', {})} className="fas fa-chevron-circle-left hover cursor-pointer h3 m-0 pr-2"></i>
-              {' Back to Catalog'}
+              {' Back to catalog'}
             </span>
             <div className="container bg-white border rounded shadow-sm py-3">
               <div className="row">
