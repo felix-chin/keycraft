@@ -31,7 +31,7 @@ https://keycraft.felixchin.com/
 
 ## Preview
 
-![wicked-sales](./wicked-sales.jpg)
+![keycraft](./keycraft.gif)
 
 ## Development
 
