@@ -59,7 +59,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 95vh;
+  min-height: 96vh;
 }
 
 @media only screen and (max-width: 1366px) {

@@ -20,6 +20,7 @@ export default class CheckoutForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleView = this.handleView.bind(this);
   }
 
   handleChange(event) {
@@ -38,15 +39,19 @@ export default class CheckoutForm extends React.Component {
     placeOrder(this.state);
   }
 
-  render() {
+  handleView() {
     const setView = this.props.setView;
+    setView('catalog', {});
+  }
+
+  render() {
     const cart = this.props.cart;
     const totalPrice = cart.reduce((sum, item) => {
       return sum + (item.price * item.quantity);
     }, 0);
     return (
       <section className="container py-3">
-        <span onClick={() => setView('catalog', {})} className="d-flex flex-row align-items-center text-muted cursor-pointer ">
+        <span onClick={this.handleView} className="d-flex flex-row align-items-center text-muted cursor-pointer ">
           <i className="fas fa-chevron-circle-left hover h3 m-0 pr-2"></i>
           {' Continue shopping'}
         </span>
