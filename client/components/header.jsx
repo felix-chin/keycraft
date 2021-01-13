@@ -6,7 +6,7 @@ export default function Header(props) {
     <header>
       <div className="navbar navbar-dark navbar-bg fixed-top">
         <div className="container justify-content-between">
-          <div onClick={() => setView('catalog', {})} className="navbar-brand d-flex align-items-center cursor-pointer">
+          <div onClick={() => setView('catalog', {})} className="navbar-brand d-flex justify-content-center align-items-center cursor-pointer">
             <i className="fas fa-keyboard mr-2"></i>
             <span className="russo-font">KEYCRAFT</span>
           </div>
