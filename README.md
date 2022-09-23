@@ -1,12 +1,6 @@
 # keycraft
 A full stack Node.js and React.js shopping cart application.
 
-## Live Demo
-
-Link to a live demo of the application: 
-
-https://keycraft.felixchin.com/
-
 ## Technologies Used
 
 - React.js
